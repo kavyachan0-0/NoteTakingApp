@@ -3,3 +3,7 @@
  */
 
 'use strict';
+
+export const Tooltip = function($element) {
+    
+}
