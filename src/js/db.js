@@ -1,11 +1,9 @@
-/**
- * @copyright codewithsadee 2023
- */
+
 
 'use strict';
 
 /** import modul */
-import {generateID,findnotebook, findNotebookIndex} from "./utils"
+import {generateID,findnotebook, findNotebookIndex} from "./utils.js"
 
 
 
@@ -14,8 +12,7 @@ let /**{object} */ notekeeperDB ={};
 
 
 const initDB = function(){
-const /**  {jSON undefienf } */ db = localStorage.getItem
-('notekeeperDB');
+const db = localStorage.getItem('notekeeperDB');
 if (db){
     notekeeperDB = JSON.parse(db);
 }else{

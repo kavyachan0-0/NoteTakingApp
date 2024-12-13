@@ -1,6 +1,4 @@
-/**
- * @copyright codewithsadee 2023
- */
+
 
 'use strict';
 
@@ -18,7 +16,8 @@ const {
     width
 } = this.getBoundingClientRect();
 
-$tooltip.style.top = top + height + 4 + 'px';
+$tooltip.style.top = Math.min(top + height + 4, window.innerHeight) + 'px';
+
 $tooltip.style.left = left + (width/2) + 'px';
 $tooltip.style.transform = 'translate(-50%,0)';
 document.body.appendChild($tooltip);

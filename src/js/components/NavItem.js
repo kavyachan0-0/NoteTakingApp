@@ -1,18 +1,16 @@
-/**
- * @copyright codewithsadee 2023
- */
+
 
 'use strict';
 
 
-import { activeNotebook , makeElemEditable} from "../utils";
+import { activeNotebook , makeElemEditable} from "../utils.js";
 /** 
  * Import 
  */
-import{DeleteConfirmModal} from "./Modal"
-import {db} from "../db"
-import { Tooltip } from "./Tooltip";
-import { client } from "../client";
+import{DeleteConfirmModal} from "./Modal.js"
+import {db} from "../db.js"
+import { Tooltip } from "./Tooltip.js";
+import { client } from "../client.js";
 const /** {HTML client } */ $notePanelTitle = document.querySelector('[data-note-panel-title]');
 
 
@@ -27,7 +25,7 @@ export  const NavItem = function (id,name) {
     /** index.html code  for deleting the record  */
     
     const /** Array <html Element>  */ $tooltipElems = $navItem.
-    querySelector('[data-tooltip]');
+    querySelectorAll('[data-tooltip]');
     $tooltipElems.forEach($elem =>Tooltip($elem) );
 
     $navItem.addEventListener('click',function(){
@@ -39,11 +37,13 @@ const $addNotebookBtn = $navItem.querySelector
 ('[data-edit-btn]');
 const $navItemField = $navItem.querySelector
 ('[data-natebook-field]');
+const $navItemEditBtn = $navItem.querySelector('[data-edit-btn]');
+
  
 $navItemEditBtn.addEventListener('click', makeElemEditable.bind
     (null, $navItemField));
 
-    $navItemField.addEventListener('key', function(event){
+    $navItemField.addEventListener('keydown', function(event){
 
 
         if(event.key=='Enter')

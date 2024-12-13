@@ -1,15 +1,17 @@
-/**
- * @copyright codewithsadee 2023
- */
+
 
 'use strict';
 /** import modul*/
-import { NavItem } from "./components/NavItem";
-import { activeNotebook } from "./utils";
+import { NavItem } from "./components/NavItem.js";
+// import { activeNotebook } from "./utils";
+import { activeNotebook } from "./utils.js"; // Adjust path as needed
+
 
 const/**{ HTML Element } */ $sidebarList = document.querySelector('[data-sidebar-list]');
 
 const /** {HTML client } */ $notePanelTitle = document.querySelector('[data-note-panel-title]');
+
+const $notePanel = document.querySelector('[data-note-panel]');
 export const client ={
     notebook :{
         create (nootebookData)
@@ -44,10 +46,17 @@ export const client ={
             activeNotebook.call($newNotebook);
     },
     delete(notebookId){
-     const $deletenotebook = document.querySelector('[data-notebook = "${notebookId}"');
+     const $deletenotebook = document.querySelector(`[data-notebook = "${notebookId}"]`);
      const $activeNavItem = 
      $deletenotebook.nextElementSibling ?? $deletenotebook.
      previousElementSibling;
+
+     if($activeNavItem){
+        $activeNavItem.click();
+     }else{
+        $notePanelTitle.innerHTML = '';
+        // $notePanel.innerHTML = '';
+     }
      
      $deletenotebook.remove();
     }

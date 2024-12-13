@@ -1,6 +1,4 @@
-/**
- * @copyright codewithsadee 2023
- */
+
 
 'use strict';
 
@@ -67,8 +65,10 @@ const findNotebookIndex = function(db, notebookId){
   return db.notebooks.findIndex()
 }
 
-
-
+//my own code
+export function generateID() {
+  return 'unique-id-' + Math.random().toString(36).substr(2, 9);
+}
 
 
 
@@ -76,5 +76,7 @@ export {
     addEventOnElements,
     getGreetingMsg,
     activeNotebook,
-    makeElemEditable
+    makeElemEditable,
+    findnotebook,
+    findNotebookIndex
 }

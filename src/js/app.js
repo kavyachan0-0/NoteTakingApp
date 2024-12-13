@@ -1,6 +1,3 @@
- /**
- * @copyright codewithsadee 2023
- */
 
 'use strict';
 
@@ -26,10 +23,10 @@ const $tooltipElems = document.querySelectorAll('[data-tooltip]');
 $tooltipElems.forEach($elem => Tooltip($elem))
 
 const $greetElem = document.querySelector('[data-greeting]');
-const currentHour = Date().getHours();
+const currentHour = new Date().getHours();
 $greetElem.textContent = getGreetingMsg(currentHour);
 
-const $currentDataElem = document.querySelector('[data-current-data]');
+const $currentDataElem = document.querySelector('[data-current-date]');
 $currentDataElem.textContent = new Date().toDateString().replace(',',',');
 
 const $sidebarList = document.querySelector('[data-sidebar-list]');
@@ -50,7 +47,7 @@ const showNotebookField = function(){
   //make nootebook field content editable and foucs
   makeElemEditable($navItemField);
   // when user press enter then creat notebook
-  $navItemField.addEventListener("keydown", createNotebook);
+  $navItemField.addEventListener("keypress", createNotebook);
 
 }
 $addNotebookBtn.addEventListener('click', showNotebookField);
@@ -60,7 +57,7 @@ const createNotebook = function(event){
   {
      console.log(event.key);
      // strore new notebook data into database
-     const /**{object} */ nootebookData=  db.post.nootebook(textContent||'Untitle');
+     const /**{object} */ nootebookData=  db.post.notebook(textContent||'Untitle');
      this.parentElement.remove();
 
      // render NavItem
@@ -80,3 +77,5 @@ client.notebook.read(notebookList);
 }
 
 renderExistedNotebook();
+
+const $noteCreateBtns = document.querySelectorAll('[data-note-create-btn]');
