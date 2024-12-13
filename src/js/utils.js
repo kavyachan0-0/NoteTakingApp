@@ -58,6 +58,19 @@ const makeElemEditable = function($element) {
   $element.focus();
 };
 
+ const findnotebook= function(db, notebookId)
+ {
+  return db.notebooks.find(notebook.id == notebookId);
+ }
+
+const findNotebookIndex = function(db, notebookId){
+  return db.notebooks.findIndex()
+}
+
+
+
+
+
 
 export {
     addEventOnElements,
