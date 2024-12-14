@@ -40,6 +40,25 @@ export const db ={
             writeDB();
 
             return nootebookData;
+        },
+
+        note(notebookId, object) {
+            readDB();
+
+            const notebook = findnotebook(notekeeperDB, notebookId);
+
+            const noteData = {
+                id: generateID(),
+                notebookId, ...Object, postedOn: new Date().getTime()
+            }
+
+
+            console.log(noteData);
+            notebook.notes.unshift(noteData);
+
+            writeDB();
+
+            return noteData;
         }
     },
 
@@ -63,7 +82,7 @@ export const db ={
             writeDB();
             return notebook;
         },
-        Delete :{
+    delete :{
             notebook(notebookId){
                 readDB();
                 const notebookIntex = findNotebookIndex(notekeeperDB , notebookId);

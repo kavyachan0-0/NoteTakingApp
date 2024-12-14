@@ -60,5 +60,14 @@ export const client ={
      
      $deletenotebook.remove();
     }
+    },
+
+    note: {
+
+        create(noteData) {
+
+            //Append card in note panel
+            const $card = Card(noteData);
+        }
     }
 }

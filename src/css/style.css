@@ -886,24 +886,6 @@ visibility: visible;
   z-index: 2;
 }
 
-.empty-notes {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%,-50%);
- 
-  color: var(--on-surface-variant);
-  -webkit-user-select: none;
-  user-select: none;
-}
-
-.empty-notes .material-symbols-rounded {
-  font-size: 6.8rem;
-  opacity: 0.25;
-  margin-block-end: var(--spacing-4);
-  margin-inline: auto;
-}
-
 
 
 
@@ -911,64 +893,3 @@ visibility: visible;
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
-
-/* responsive for larger than 768px screen */
-
-@media (min-width: 768px){
-  /* MAIN */
-
-  .main {padding-inline: var(--spacing-6); }
-}
-
-
-
-
-/* responsive for larger than 992px screen */
-
-@media (min-width: 992px){
-  /* BASE */
-
-  body { padding-inline-start: var(--sidebar-width);}
-
-
-
-  /* reused style */
-
-  .overlay:not(.modal-overlay) {display: none;}
-
-  /* sidebar */
-
-  .sidebar{
-    visibility: visible;
-    left: 0;
-    height: 100vh;
-    grid-template-rows: repeat(3,max-content) 1fr max-content;
-    box-shadow: none;
-    border-radius: 0;
-
-  }
-
-  .sidebar.active {transform: unset;}
-
-  .sidebar .fab {display: flex;}
-
-  /* main */
-
-  .main {padding-inline: var(--spacing-10);}
-
-  .main-btn,
-  .main .fab {display: none;}
-}
-
-
-/* responsive for larger than 1400px screen */
-
-@media (min-width: 1400px){
-  /* main */
-
-  .main{
-    max-width: 148px;
-    width: 100%;
-    margin-inline: auto;
-  }
-}

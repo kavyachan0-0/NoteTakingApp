@@ -5,8 +5,9 @@
 
 import { addEventOnElements , getGreetingMsg, activeNotebook, makeElemEditable} from "./utils.js";
 import { Tooltip } from "./components/Tooltip.js";
-import{db} from "./db.js";
+import{ db  } from "./db.js";
 import { client } from "./client.js";
+import { NoteModal } from "./components/Modal.js";
 
 // Toggle sidebar in small screen 
 
@@ -79,3 +80,16 @@ client.notebook.read(notebookList);
 renderExistedNotebook();
 
 const $noteCreateBtns = document.querySelectorAll('[data-note-create-btn]');
+
+addEventOnElements($noteCreateBtns, 'click', function (){
+  const modal = NoteModal();
+  modal.open();
+
+  modal.onSubmit(noteObj => {
+    const activeNotebookID = document.querySelector('[data-notebook].active').dataset.notebook;
+
+    const noteData = db.post.notebook(activeNotebookID, noteObj);
+    client.notebook.create(noteData);
+    modal.close();
+  })
+});
